@@ -1,0 +1,84 @@
+@import "styles/variables";
+
+div.authContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  max-width: 1300px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  color: #fff;
+
+  &:before {
+    content: "";
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    filter: brightness(0.3);
+    background-image: url("https://www.rocketnews.com/wp-content/uploads/2019/05/635620185105562499-generic-basketball-1.jpg");
+    background-position: right, bottom;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+
+  .loginWrapper {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    z-index: 3;
+    padding: 35px 30px;
+    border-radius: 20px;
+    min-width: 410px;
+    min-height: 400px;
+    margin: 0 auto;
+
+    &::after {
+      content: "";
+      position: absolute;
+      z-index: -1;
+      left: 0;
+      top: 0;
+      opacity: .8;
+      width: 100%;
+      height: 100%;
+      border-radius: 20px;
+      background-color: #3e4247;
+      box-shadow: 2px 2px 8px 2px rgba(0,0,0,0.3);
+    }
+
+    form {
+      flex-grow: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+
+      .loginHeader {
+        font-size: 45px;
+        font-weight: 700;
+        text-align: center;
+        line-height: 1;
+        margin-bottom: 30px;
+      }
+
+      .inputsWrapper {
+        width: 100%;
+
+        margin-bottom: 45px;
+
+        div.input {
+          color: #fff;
+
+          &:first-of-type {
+            margin-bottom: 20px;
+          }
+        }
+      }
+
+      .submitButton {
+        height: 45px;
+        width: 200px;
+      }
+    }
+  }
+}

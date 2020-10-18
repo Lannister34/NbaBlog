@@ -1,0 +1,30 @@
+$input-warning: rgb(214, 142, 59);
+$input-error: #cb5134;
+$textColor: #ddd;
+
+div.input {
+    display: block;
+
+    &>div {
+      display: block;
+
+      &>input {
+        padding: 10px 10px 10px 16px;
+        color: $textColor;
+        filter: none;
+        font-size: 1.1rem;
+
+        &:-webkit-autofill,
+        &:-webkit-autofill:hover,
+        &:-webkit-autofill:focus,
+        &:-internal-autofill-selected,
+        &:-internal-autofill-selected:hover,
+        &:-internal-autofill-selected:focus {
+          font-family: Lato, Arial, sans-serif;
+          -webkit-text-fill-color: $textColor;
+          background: none;
+          transition: background-color 5000s ease-in-out 0s;
+        }
+      }
+    }
+}
