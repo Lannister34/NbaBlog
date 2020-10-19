@@ -6,7 +6,7 @@ import store from 'redux/store';
 import App from 'containers/App';
 import history from './browserHistory';
 import * as serviceWorker from './serviceWorker';
-import 'styles/index.sass';
+import 'styles/index.scss';
 
 ReactDOM.render(
   <Provider store={store}>

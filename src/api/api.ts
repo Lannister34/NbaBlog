@@ -1,13 +1,63 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
+import axios, { AxiosInstance, AxiosResponse, AxiosError } from 'axios';
+
+const BASE_URL = 'https://rapidapi.p.rapidapi.com/';
+
 class Api {
-  constructor() {}
+  baseUrl: string;
+  instance: AxiosInstance;
+  constructor() {
+    this.baseUrl = BASE_URL;
+    this.instance = axios.create({
+      baseURL: BASE_URL,
+      headers: {
+        'Content-Type': 'application/json',
+        'x-rapidapi-host': 'api-nba-v1.p.rapidapi.com',
+        'x-rapidapi-key': 'SIGN-UP-FOR-KEY',
+        useQueryString: true,
+      },
+    });
+  }
 
-  async get() {}
+  async get(url: string, params?: any) {
+    return await this.instance
+      .get(url, {
+        params,
+      })
+      .then(Api.handleResponse)
+      .catch(Api.handleError);
+  }
 
-  async post() {}
+  async post(url: string, data: any) {
+    return await this.instance.post(url, data).then(Api.handleResponse).catch(Api.handleError);
+  }
 
-  async put() {}
+  async put(url: string, data: any) {
+    return await this.instance.put(url, data, {}).then(Api.handleResponse).catch(Api.handleError);
+  }
 
-  async delete() {}
+  async delete(url: string, data?: any) {
+    return await this.instance
+      .delete(url, {
+        data,
+      })
+      .then(Api.handleResponse)
+      .catch(Api.handleError);
+  }
+
+  private static handleResponse(response: AxiosResponse) {
+    return response.data;
+  }
+
+  private static handleError(error: AxiosError) {
+    if (error.response) {
+      throw new Error(error.response.data.error);
+    } else if (error.request) {
+      throw new Error(error.request.responseText);
+    } else {
+      throw new Error(error.message);
+    }
+  }
 }
 
 export default new Api();

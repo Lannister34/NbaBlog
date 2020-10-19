@@ -1,0 +1,54 @@
+@import "styles/variables";
+
+$btn-primary: #eb3d55;
+$btn-secondary: #747577;
+$btn-warning: rgb(230, 201, 41);
+$btn-error: rgb(240, 68, 25);
+
+button.btn {
+  height: 40px;
+  border: 2px solid rgba(0, 0, 0, 0.3);
+  background-color: rgba(0, 0, 0, 0.1);
+
+  & > span {
+    color: #fff;
+    font-weight: 600;
+  }
+
+  &.btnPrimary {
+    background-color: $btn-primary;
+
+    &:hover {
+      background-color: darken($btn-primary, 10%);
+    }
+  }
+
+  &.btnSecondary {
+    background-color: $btn-secondary;
+
+    &:hover {
+      background-color: darken($btn-secondary, 10%);
+    }
+  }
+
+  &.btnWarning {
+    background-color: $btn-warning;
+
+    &:hover {
+      background-color: darken($btn-warning, 10%);
+    }
+  }
+
+  &.btnError {
+    background-color: $btn-error;
+
+    &:hover {
+      background-color: darken($btn-error, 10%);
+    }
+  }
+
+  &:disabled {
+    background-color: $btn-secondary;
+    opacity: 0.3;
+  }
+}
