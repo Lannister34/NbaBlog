@@ -1,0 +1,54 @@
+@import 'styles/variables.scss';
+
+div.formControl {
+  width: 100%;
+  border: none;
+
+  & div {
+    background-color: white;
+  }
+
+  legend {
+    display: none;
+  }
+
+  fieldset {
+    border: none;
+  }
+
+  & div select {
+    padding: 0.3rem 1rem 0.5rem;
+    filter: none;
+
+    &:required:invalid {
+      color: #8e8e8e;
+    }
+    option[value=""][disabled] {
+      display: none;
+    }
+    option {
+      color: black;
+    }
+
+    option:not(:first-of-type) {
+      color: black;
+    }
+
+    &:-webkit-autofill,
+    &:-webkit-autofill:hover,
+    &:-webkit-autofill:focus,
+    &:-internal-autofill-selected,
+    &:-internal-autofill-selected:hover,
+    &:-internal-autofill-selected:focus {
+      font-family: Lato, Arial, sans-serif;
+      -webkit-text-fill-color: white;
+      background-image: none;
+      transition: background-color 5000s ease-in-out 0s;
+    }
+  }
+}
+
+.inputLabel {
+  display: block;
+  color: white;
+}

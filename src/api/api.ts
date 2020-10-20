@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import axios, { AxiosInstance, AxiosResponse, AxiosError } from 'axios';
 
-const BASE_URL = 'https://rapidapi.p.rapidapi.com/';
+const BASE_URL = 'test' || 'https://rapidapi.p.rapidapi.com/';
 
 class Api {
   baseUrl: string;
@@ -13,7 +13,7 @@ class Api {
       headers: {
         'Content-Type': 'application/json',
         'x-rapidapi-host': 'api-nba-v1.p.rapidapi.com',
-        'x-rapidapi-key': 'SIGN-UP-FOR-KEY',
+        'x-rapidapi-key': '17682167bfmsh059f478d953dfffp1c4342jsn01cc71ff4e94',
         useQueryString: true,
       },
     });
