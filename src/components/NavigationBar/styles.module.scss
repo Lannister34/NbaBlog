@@ -1,0 +1,21 @@
+.navigationBar {
+  height: 90px;
+  background-color: #333;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 30px;
+
+  .logoWrapper {
+    width: 120px;
+    height: 80px;
+    background-image: url('https://miro.medium.com/max/1200/1*ar32-QiBdCCSDzRYNH5Vuw.png');
+    background-repeat: no-repeat;
+    background-size: contain;
+  }
+
+  .selectWrapper {
+    max-width: 500px;
+    width: 45%;
+  }
+}

@@ -13,7 +13,7 @@ class Api {
       headers: {
         'Content-Type': 'application/json',
         'x-rapidapi-host': 'api-nba-v1.p.rapidapi.com',
-        'x-rapidapi-key': 'SIGN-UP-FOR-KEY',
+        'x-rapidapi-key': '17682167bfmsh059f478d953dfffp1c4342jsn01cc71ff4e94',
         useQueryString: true,
       },
     });

@@ -8,6 +8,7 @@ import UserSchema from 'common/validation/user';
 import { loginFailure, loginRequest } from './actions';
 import { RootState } from 'redux/rootReducer';
 import Spinner from 'components/Spinner';
+import NavigationBar from 'components/NavigationBar';
 
 const Auth = (): JSX.Element => {
   const authState = useSelector((state: RootState) => state.auth);
@@ -74,47 +75,50 @@ const Auth = (): JSX.Element => {
   };
 
   return (
-    <Container className={styles.authContainer} maxWidth="lg">
-      <Box className={styles.loginWrapper}>
-        {authState.isLoading ? (
-          <Spinner />
-        ) : (
-          <form>
-            <Box className={styles.loginHeader}>Login</Box>
-            <Box className={styles.errorWrapper}>
-              <Box>{authState.errorMessage}</Box>
-              <Box>{emailValidationError}</Box>
-              <Box>{passwordValidationError}</Box>
-            </Box>
-            <Box className={styles.inputsWrapper}>
-              <Input
-                className={styles.input}
-                value={email}
-                onChange={onChangeEmail}
-                name="Email"
-                placeholder="Email"
-                type="text"
-                error={Boolean(emailValidationError)}
-                required
-              />
-              <Input
-                className={styles.input}
-                value={password}
-                onChange={onChangePassword}
-                name="Password"
-                placeholder="Password"
-                type="password"
-                error={Boolean(passwordValidationError)}
-                required
-              />
-            </Box>
-            <Button onClick={login} className={styles.submitButton}>
-              Login
-            </Button>
-          </form>
-        )}
-      </Box>
-    </Container>
+    <React.Fragment>
+      <NavigationBar />
+      <Container className={styles.authContainer} maxWidth="lg">
+        <Box className={styles.loginWrapper}>
+          {authState.isLoading ? (
+            <Spinner />
+          ) : (
+            <form>
+              <Box className={styles.loginHeader}>Login</Box>
+              <Box className={styles.errorWrapper}>
+                <Box>{authState.errorMessage}</Box>
+                <Box>{emailValidationError}</Box>
+                <Box>{passwordValidationError}</Box>
+              </Box>
+              <Box className={styles.inputsWrapper}>
+                <Input
+                  className={styles.input}
+                  value={email}
+                  onChange={onChangeEmail}
+                  name="Email"
+                  placeholder="Email"
+                  type="text"
+                  error={Boolean(emailValidationError)}
+                  required
+                />
+                <Input
+                  className={styles.input}
+                  value={password}
+                  onChange={onChangePassword}
+                  name="Password"
+                  placeholder="Password"
+                  type="password"
+                  error={Boolean(passwordValidationError)}
+                  required
+                />
+              </Box>
+              <Button onClick={login} className={styles.submitButton}>
+                Login
+              </Button>
+            </form>
+          )}
+        </Box>
+      </Container>
+    </React.Fragment>
   );
 };
 
