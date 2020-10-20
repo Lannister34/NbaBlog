@@ -6,4 +6,5 @@ export interface IHomeState {
   leagues: Array<string>;
   currentLeague: string;
   teams: Array<Team>;
+  team: Team | null;
 }

@@ -6,6 +6,7 @@ import { RootState } from 'redux/rootReducer';
 import TeamList from 'components/TeamList';
 import { Box } from '@material-ui/core';
 import styles from './styles.module.scss';
+import Spinner from 'components/Spinner';
 
 const Home = (): JSX.Element => {
   const dispatch = useDispatch();
@@ -26,9 +27,13 @@ const Home = (): JSX.Element => {
   return (
     <React.Fragment>
       <NavigationBar isHomepage={true} />
-      <Box className={styles.contentWrapper}>
-        <TeamList teamList={homeState.teams} />
-      </Box>
+      {!homeState.isLoading ? (
+        <Box className={styles.contentWrapper}>
+          <TeamList teamList={homeState.teams} />
+        </Box>
+      ) : (
+        <Spinner page={true} />
+      )}
     </React.Fragment>
   );
 };

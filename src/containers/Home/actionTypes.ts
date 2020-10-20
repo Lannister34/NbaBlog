@@ -9,6 +9,11 @@ export const HOME_LEAGUES_REQUEST_SUCCESS = 'HOME_LEAGUES_REQUEST_SUCCESS';
 export const HOME_TEAMS_REQUEST = 'HOME_TEAMS_REQUEST';
 export const HOME_TEAMS_REQUEST_SUCCESS = 'HOME_TEAMS_REQUEST_SUCCESS';
 
+export const HOME_TEAM_REQUEST = 'HOME_TEAM_REQUEST';
+export const HOME_TEAM_REQUEST_SUCCESS = 'HOME_TEAM_REQUEST_SUCCESS';
+
+export const HOME_CHANGE_CURRENT_LEAGUE = 'HOME_CHANGE_CURRENT_LEAGUE';
+
 export interface loadingStatusAction {
   type: typeof HOME_LOADING_STATUS;
   payload: {
@@ -41,10 +46,31 @@ export interface teamsRequestAction {
   };
 }
 
-export interface teamRequestSuccessAction {
+export interface teamsRequestSuccessAction {
   type: typeof HOME_TEAMS_REQUEST_SUCCESS;
   payload: {
     teams: Array<Team>;
+  };
+}
+
+export interface teamRequestAction {
+  type: typeof HOME_TEAM_REQUEST;
+  payload: {
+    id: string;
+  };
+}
+
+export interface teamRequestSuccessAction {
+  type: typeof HOME_TEAM_REQUEST_SUCCESS;
+  payload: {
+    team: Team;
+  };
+}
+
+export interface changeCurrentLeagueAction {
+  type: typeof HOME_CHANGE_CURRENT_LEAGUE;
+  payload: {
+    league: string;
   };
 }
 
@@ -54,4 +80,7 @@ export type HomeActionTypes =
   | requestFailureAction
   | leaguesRequestSuccessAction
   | teamsRequestAction
-  | teamRequestSuccessAction;
+  | teamsRequestSuccessAction
+  | teamRequestAction
+  | teamRequestSuccessAction
+  | changeCurrentLeagueAction;

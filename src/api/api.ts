@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import axios, { AxiosInstance, AxiosResponse, AxiosError } from 'axios';
 
-const BASE_URL = 'test' || 'https://rapidapi.p.rapidapi.com/';
+const BASE_URL = 'https://rapidapi.p.rapidapi.com/';
 
 class Api {
   baseUrl: string;

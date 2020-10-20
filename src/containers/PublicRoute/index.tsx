@@ -1,5 +1,5 @@
 import React from 'react';
-import { Redirect } from 'react-router-dom';
+import { Redirect, Route } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import { Routes } from 'common/enums/routes';
 import { RootState } from 'redux/rootReducer';
@@ -16,7 +16,11 @@ type IPublicRoute = {
 const PublicRoute = ({ component: Component, authorizedAccess = true, ...rest }: IPublicRoute): JSX.Element => {
   const isAuthorized = useSelector((state: RootState) => !!state.auth.user?.id);
 
-  return !authorizedAccess && isAuthorized ? <Redirect to={Routes.DEFAULT} /> : <Component {...rest} />;
+  return !authorizedAccess && isAuthorized ? (
+    <Redirect to={Routes.DEFAULT} />
+  ) : (
+    <Route component={Component} {...rest} />
+  );
 };
 
 export default PublicRoute;
